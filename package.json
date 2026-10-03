@@ -1,0 +1,40 @@
+{
+  "name": "noor-infinity",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NOOR ∞ — Islamic Knowledge Operating System",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "db:migrate": "tsx ingest/migrate.ts",
+    "db:ingest": "tsx ingest/run-all.ts",
+    "db:reset": "rm -rf .noor-data && tsx ingest/run-all.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "audit:accept": "tsx tests/acceptance.ts"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.2.17",
+    "next": "15.5.4",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
+}
